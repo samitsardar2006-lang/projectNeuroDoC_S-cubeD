@@ -2,6 +2,7 @@
 This is a project on mobile first ambient AI scribe based on natural language prossesing where an unstructured doctor and patient convertion is convert into a structured patient transcript along with FHIR mapping  .
 
 ✨ What Does It Do?
+
 Drop in a raw audio recording of a doctor-patient consultation. Get back a complete clinical record — automatically.
 InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragraphs)🌐 Hindi / English / Hinglish🏷️ Speaker-labeled dialogue (Doctor vs Patient)🏥 Noisy OPD environment💊 Medications with dose, route, frequency📱 Phone recording🔬 Tests ordered with clinical indications🧬 5 × FHIR R4 resources (ABDM-ready)📄 PDF + JSON download
 
