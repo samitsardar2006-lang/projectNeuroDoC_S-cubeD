@@ -7,12 +7,14 @@ Drop in a raw audio recording of a doctor-patient consultation. Get back a compl
 InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragraphs)🌐 Hindi / English / Hinglish🏷️ Speaker-labeled dialogue (Doctor vs Patient)🏥 Noisy OPD environment💊 Medications with dose, route, frequency📱 Phone recording🔬 Tests ordered with clinical indications🧬 5 × FHIR R4 resources (ABDM-ready)📄 PDF + JSON download
 
 🏗️ Architecture :
+
 ┌─────────────────────────────────────────────────────────────────────┐
 │                         INPUT LAYER                                  │
 │  Browser (WebM/OGG) ──────────────────────────────► FastAPI Upload  │
 └─────────────────────────┬───────────────────────────────────────────┘
                           │
                           ▼
+                          
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    AUDIO PIPELINE  (ffmpeg, 11 stages)              │
 │                                                                      │
@@ -22,6 +24,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
 │  ⑩ Silence strip     ⑪ → 16kHz 16-bit PCM                         │
 └─────────────────────────┬───────────────────────────────────────────┘
                           │
+                          
               ┌───────────┴───────────┐
               ▼                       ▼
 ┌─────────────────────┐   ┌────────────────────────┐
@@ -31,6 +34,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
 └─────────┬───────────┘   └──────────┬─────────────┘
           └───────────────┬──────────┘
                           ▼
+                          
 ┌─────────────────────────────────────────────────────────────────────┐
 │              DIARIZATION ENGINE  (4 stages)                         │
 │                                                                      │
@@ -40,6 +44,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
 │  Stage 4 ── Fingerprinting   Per-session exclusive vocabulary       │
 └─────────────────────────┬───────────────────────────────────────────┘
                           │
+                          
 ┌─────────────────────────▼───────────────────────────────────────────┐
 │              CORRECTION ENGINE  (2 passes)                          │
 │                                                                      │
@@ -47,6 +52,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
 │  Pass B ── LLM whole-transcript  Speaker-aware contextual fix       │
 └─────────────────────────┬───────────────────────────────────────────┘
                           │
+                          
               ┌───────────┴───────────┐
               ▼                       ▼
 ┌─────────────────────┐   ┌────────────────────────┐
@@ -56,6 +62,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
 └─────────┬───────────┘   └──────────┬─────────────┘
           └───────────────┬──────────┘
                           ▼
+                          
               ┌───────────────────────┐
               │  SQLite (WAL mode)    │
               │  Session store        │
@@ -63,6 +70,7 @@ InputOutput🎙️ Raw audio (any format)📋 Full SOAP note (AIIMS-style paragr
               └───────────────────────┘
 
 ⚡ Quickstart
+
 bash# 1. Clone the repo
 git clone https://github.com/your-org/neurodoc && cd neurodoc
 
