@@ -34,6 +34,8 @@ Last 30 reports stored locally. Load, edit, or re-download any consultation at a
 
 
 
+
+
 🛠️ Tech Stack
 
 FastAPI — async Python backend
@@ -44,6 +46,8 @@ Redis — production session store (in-memory fallback for development)
 ReportLab — PDF clinical report generation
 HL7 FHIR R4 / HAPI FHIR — structured health data export
 Vanilla JS + Web Audio API — zero-dependency frontend, no build step
+
+
 
 
 ⚙️ Usage
@@ -63,14 +67,17 @@ Make sure ffmpeg is installed and on your PATH:
 sh# Ubuntu / Debian
 sudo apt install ffmpeg
 
+
 # macOS
 brew install ffmpeg
+
 
 # Windows — download from https://ffmpeg.org/download.html
 
 Create a .env file (or export directly):
 
 envGROQ_API_KEY=gsk_xxxxxxxxxxxxxxxx
+
 
 # Optional — defaults shown
 MAX_AUDIO_MB=30
@@ -103,6 +110,7 @@ EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 </details>
+
 
 📡 API Reference
 POST /transcribe
@@ -145,10 +153,13 @@ shcurl -X POST http://localhost:8000/transcribe \
 Other Endpoints
 MethodEndpointDescriptionGET/healthService status, model info, DB statsGET/download?session_id=&format=pdf|jsonDownload reportGET/consultationsList all consultations (paginated)GET/consultations/search?q=Search by name, ICD code, diagnosisPATCH/consultations/{id}/entitiesEdit any entity field post-transcriptionGET/fhir/Bundle/{id}Full FHIR transaction Bundle (ABDM-ready)POST/consultations/{id}/push-fhirRe-push FHIR to HAPI serverGET/search_patient?name=Search HAPI FHIR patient archive
 
+
+
 ⚠️ Clinical Disclaimer
 
 NeuroDoC is a documentation assistance tool only and does not constitute medical advice.
 All AI-generated clinical records must be reviewed and countersigned by a licensed physician before use in any clinical setting.
+
 
 
 📄 License
