@@ -25,8 +25,6 @@ One-click download of a formatted clinical PDF or raw JSON from any session — 
 🕓 Session History
 Last 30 reports stored locally. Load, edit, or re-download any consultation at any time.
 
-Show Image
-<!-- Save your architecture diagram as assets/architecture.png -->
 
 🛠️ Tech Stack
 
