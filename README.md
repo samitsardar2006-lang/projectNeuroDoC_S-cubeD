@@ -8,26 +8,37 @@ Show Image
 
 🚀 Features
 
+
 🎙️ Hospital-Grade Noise Reduction
 11-stage ffmpeg pipeline strips India 50 Hz hum, HVAC, monitor beeps, crowd noise, and mic handling — before audio ever reaches Whisper.
+
 🗣️ Two-Pass Whisper Transcription
 Pass 1 auto-detects language. Pass 2 re-transcribes with a language lock and a custom 224-token Indian medical vocabulary prompt for maximum accuracy.
+
 👥 4-Stage Speaker Diarization
 Labels every segment DOCTOR or PATIENT — no voice enrollment needed. Rule scoring → LLM labeling → smoothing → voice fingerprinting.
+
 ✍️ 2-Pass Medical Correction
 250+ regex rules fix drug names, lab tests, and Hindi symptom words instantly. A second LLM pass catches anything the regex missed using full conversation context.
+
 📋 Clinical NLP — Entities + SOAP + ICD-10
 18 structured fields, a complete SOAP note, specific ICD-10 code, and every medication formatted with name + dose + route + frequency + duration.
+
 ⚡ 5× FHIR R4 Resources
 Patient, Encounter, Observation, Condition, and MedicationRequest — auto-pushed to HAPI FHIR in the background using LOINC, SNOMED CT, RxNorm, and ICD-10.
+
 📄 PDF & JSON Export
 One-click download of a formatted clinical PDF or raw JSON from any session.
+
 🕓 Session History
 Last 30 reports saved locally. Load, edit, or re-download any consultation at any time.
 
+
 Show Image
 
+
 🛠️ Tech Stack
+
 
 FastAPI — async Python backend
 Groq API — Whisper-large-v3 + LLaMA-3.3-70b-versatile
@@ -37,6 +48,7 @@ Redis — session store (in-memory fallback for dev)
 ReportLab — PDF generation
 HAPI FHIR R4 — structured health data export
 Vanilla JS + Web Audio API — frontend, no build step
+
 
 
 ⚙️ Setup
@@ -54,6 +66,7 @@ brew install ffmpeg
 4. Create a .env file
 envGROQ_API_KEY=gsk_xxxxxxxxxxxxxxxx
 
+
 # optional
 MAX_AUDIO_MB=30
 SESSION_TTL_H=12
@@ -69,13 +82,16 @@ Docker
 shdocker build -t neurodoc .
 docker run -p 8000:8000 -e GROQ_API_KEY=gsk_xxx neurodoc
 
+
 📡 Core API
 MethodEndpointWhat it doesPOST/transcribeFull pipeline — audio in, clinical record outGET/download?session_id=&format=pdf|jsonDownload reportGET/consultationsList all saved consultationsGET/consultations/search?q=Search by name, ICD, diagnosisPATCH/consultations/{id}/entitiesEdit any field after transcriptionGET/fhir/Bundle/{id}Full FHIR transaction BundlePOST/consultations/{id}/push-fhirRe-push FHIR to HAPI
+
 
 ⚠️ Disclaimer
 
 NeuroDoC is a documentation tool only.
 All AI-generated records must be reviewed and signed by a licensed physician before clinical use.
+
 
 
 📄 License
