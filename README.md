@@ -4,13 +4,7 @@
 
 NeuroDoC is an ambient AI clinical scribe built specifically for Indian hospitals. It listens to a doctor–patient conversation in Hindi, English, or Hinglish, separates who said what, corrects every drug name and diagnosis, and produces a complete clinical record — SOAP note, ICD-10 code, and five HL7 FHIR R4 resources — in seconds. No typing. No templates.
 Have a look at the demo (add your demo link here)
-<!-- Replace with your actual screenshot — see instructions below -->
-Show Image
-<!-- 
-  To add your screenshot:
-  Option A — Create an assets/ folder in the repo, save your screenshot as assets/dashboard.png
-  Option B — Drag the screenshot into a GitHub Issue comment box, copy the URL it generates, paste here
--->
+
 
 🚀 Features
 
