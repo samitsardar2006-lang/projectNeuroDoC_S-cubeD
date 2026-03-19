@@ -122,6 +122,7 @@ docker run -p 8000:8000 -e GROQ_API_KEY=gsk_xxx neurodoc
 
 ---
 
+
 ## ⚠️ Disclaimer
 
 > NeuroDoC is a documentation tool only.  
