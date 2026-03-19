@@ -113,7 +113,7 @@ docker run -p 8000:8000 -e GROQ_API_KEY=gsk_xxx neurodoc
 | Method | Endpoint | What it does |
 |:---:|---|---|
 | `POST` | `/transcribe` | **Full pipeline** — audio in, clinical record out |
-| `GET` | `/download?session_id=&format=pdf\|json` | Download report |
+| `GET` | `/download? session_id=&format=pdf\|json` | Download report |
 | `GET` | `/consultations` | List all saved consultations |
 | `GET` | `/consultations/search?q=` | Search by name, ICD, diagnosis |
 | `PATCH` | `/consultations/{id}/entities` | Edit any field after transcription |
