@@ -10,20 +10,28 @@ Have a look at the demo (add your demo link here)
 
 🎙️ 11-Stage Noise Reduction Pipeline
 A hospital-grade ffmpeg DSP chain handles India 50 Hz power-line hum, HVAC, crowd noise, monitor beeps, and variable mic distances before a single byte reaches the ASR model.
+
 🗣️ Two-Pass Whisper Transcription
 Pass 1 auto-detects language. Pass 2 re-transcribes with a language lock and a 224-token Indian medical vocabulary prompt — dramatically improving accuracy for Hindi, English, and Hinglish.
+
 👥 4-Stage Speaker Diarization
 Automatically labels every segment as DOCTOR or PATIENT with no voice enrollment. Uses rule scoring → LLM contextual labeling → consistency smoothing → per-session voice fingerprinting.
+
 ✍️ 2-Pass Medical Correction Engine
 Pass A runs 250+ compiled regex rules for drug names, lab tests, and Hindi symptom terms. Pass B uses a whole-transcript LLM call with speaker context to fix anything that slipped through.
+
 📋 Full Clinical NLP
 Extracts 18 structured entity fields, writes a complete SOAP note (minimum 20 clinical sentences), assigns a specific ICD-10 code, and formats every medication with generic name + dose + route + frequency + duration.
+
 ⚡ 5× FHIR R4 Resources
 Generates and auto-pushes Patient, Encounter, Observation, Condition, and MedicationRequest resources to HAPI FHIR. Uses LOINC, SNOMED CT, RxNorm, and ICD-10 coding systems.
+
 📄 PDF & JSON Reports
 One-click download of a formatted clinical PDF or raw JSON from any session — current or historical.
+
 🕓 Session History
 Last 30 reports stored locally. Load, edit, or re-download any consultation at any time.
+
 
 
 🛠️ Tech Stack
